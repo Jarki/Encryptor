@@ -127,7 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\FileWrapper.cpp" />
+    <ClCompile Include="src\FileEncryptor.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\FileWrapper.h" />
+    <ClInclude Include="include\BaseEncryptor.h" />
+    <ClInclude Include="include\FileEncryptor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
