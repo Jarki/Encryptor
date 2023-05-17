@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\DoNothingEncryptor.cpp" />
     <ClCompile Include="src\FileWrapper.cpp" />
     <ClCompile Include="src\FileEncryptor.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\DoNothingEncryptor.h" />
     <ClInclude Include="include\FileWrapper.h" />
     <ClInclude Include="include\BaseEncryptor.h" />
     <ClInclude Include="include\FileEncryptor.h" />

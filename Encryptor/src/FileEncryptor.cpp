@@ -20,7 +20,7 @@ void FileEncryptor::encrypt(char* filepath)
         throw std::exception("Encrypting error: no encryptor set");
     }
 
-    encryptor->encrypt(filepath);
+    encryptor->encrypt(filepath, filepath);
 }
 
 void FileEncryptor::setEncryptor(BaseEncryptor* encryptor)

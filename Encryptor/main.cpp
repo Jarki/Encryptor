@@ -1,11 +1,15 @@
 #include <iostream>
 
 #include "include/FileWrapper.h"
+#include "include/DoNothingEncryptor.h"
+#include "include/FileEncryptor.h"
 
 int main(int argc, char* argv[]) {
-	auto file = FileWrapper("test.txt", "w+");
+	DoNothingEncryptor encryptor_tool;
 
-	file.write("Hello", 5);
+	FileEncryptor encryptor(&encryptor_tool);
+
+	encryptor_tool.encrypt("test.txt", "test_enc.txt");
 
 	return 0;
 }

@@ -1,6 +1,7 @@
 #include <exception>
 
 #include "../include/FileWrapper.h"
+#include <string.h>
 
 FileWrapper::FileWrapper(const char* filename)
 {
@@ -19,13 +20,32 @@ void FileWrapper::open(const char* filename, const char* mode)
 
 void FileWrapper::close()
 {
-	fclose(handle);
-	delete handle;
+	if(handle != nullptr)
+		fclose(handle);
 }
 
-const char* FileWrapper::read()
+char* FileWrapper::read()
 {
-	return nullptr;
+	fseek(handle, 0, SEEK_END);
+	long fsize = ftell(handle);
+	rewind(handle);
+
+	char* buffer = (char*)malloc(sizeof(char) * fsize + 1);
+	
+	if (buffer == nullptr) {
+		printf("%s", "Error!");
+		return nullptr;
+	}
+
+	size_t result = fread(buffer, 1, fsize, handle);
+
+	if (result != fsize) { 
+		printf("%s", "Reading error!");
+		return nullptr; 
+	}
+
+	buffer[fsize] = '\0';
+	return buffer;
 }
 
 void FileWrapper::write(const char* content, size_t content_size)

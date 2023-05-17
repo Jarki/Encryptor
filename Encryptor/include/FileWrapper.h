@@ -10,7 +10,7 @@ public:
 	void open(const char* filename, const char* mode);
 	void close();
 
-	const char* read();
+	char* read();
 	void write(const char* content, size_t content_size);
 
 	~FileWrapper();
