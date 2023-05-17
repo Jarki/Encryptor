@@ -5,11 +5,11 @@
 #include "include/FileEncryptor.h"
 
 int main(int argc, char* argv[]) {
-	DoNothingEncryptor encryptor_tool;
+	auto string_encryptor = new DoNothingEncryptor();
 
-	FileEncryptor encryptor(&encryptor_tool);
+	FileEncryptor encryptor(string_encryptor);
 
-	encryptor_tool.encrypt("test.txt", "test_enc.txt");
+	encryptor.encrypt("test.txt", "test_enc.txt");
 
 	return 0;
 }

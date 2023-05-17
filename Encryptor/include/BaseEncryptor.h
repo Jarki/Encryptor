@@ -3,13 +3,14 @@ class BaseEncryptor
 {
 public:
 	BaseEncryptor() : key(nullptr) {};
-	BaseEncryptor(char* user_key) : key(nullptr) {};
+	BaseEncryptor(char* user_key) : key(user_key) {};
 
-	virtual void encrypt(const char* source_filename, const char* dest_filename) {};
+	virtual char* encrypt(char* content) = 0;
 
 	void setKey(char* key) {
 		this->key = key;
 	};
+
 	char* getkey() {
 		return key;
 	};
